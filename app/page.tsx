@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import BuilderPass from './Components/BuilderPass';
 
 export default function Home() {
   return (
@@ -10,9 +12,9 @@ export default function Home() {
           <div className="text-lg font-black tracking-tighter uppercase">PADDLEOUT</div>
           <div className="flex gap-8 items-center">
              <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">System_v3.0</span>
-             <button className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 px-4 py-2 rounded-md">
+             <Link href="/claim" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 px-4 py-2 rounded-md">
                 Claim Pass
-             </button>
+             </Link>
           </div>
         </div>
       </nav>
@@ -28,9 +30,9 @@ export default function Home() {
             The Pass maps your technical momentum, product DNA, and peer-verified impact into a high-fidelity feed you own.
           </p>
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-            <button className="px-8 py-4 bg-white text-black font-bold text-xs uppercase tracking-[0.2em] hover:bg-gray-200 transition-all">
+            <Link href="/claim" className="px-8 py-4 bg-white text-black font-bold text-xs uppercase tracking-[0.2em] hover:bg-gray-200 transition-all inline-block">
               Claim your Pass
-            </button>
+            </Link>
             <p className="text-xs text-gray-500 max-w-sm italic leading-relaxed">
               Whether you’re a Senior shipping core infrastructure or a rising Builder shipping daily to level up, Paddleout turns work into a permanent signal. Stop applying and start being scouted.
             </p>
@@ -90,10 +92,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* MOCKUP PLACEHOLDER 1 */}
-          <div className="aspect-[4/5] bg-white/[0.01] border border-white/10 rounded-2xl flex items-center justify-center p-12 relative overflow-hidden shadow-2xl">
-             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
-             <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest z-10">[ Jane Smith Builder Pass Mockup ]</span>
+          {/* Builder Pass Component */}
+          <div className="flex items-center justify-center">
+            <BuilderPass />
           </div>
         </div>
       </section>
@@ -163,9 +164,9 @@ export default function Home() {
         <p className="text-gray-500 mb-10 max-w-md mx-auto text-sm leading-relaxed">
           Join the lineup of builders taking control of their work and letting their code do the talking.
         </p>
-        <button className="px-12 py-5 bg-white text-black font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+        <Link href="/claim" className="px-12 py-5 bg-white text-black font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.1)] inline-block">
           Claim your Pass
-        </button>
+        </Link>
         <div className="mt-20 pt-10 border-t border-white/5 text-[10px] font-mono text-gray-600 uppercase tracking-[0.5em]">
           Paddleout © 2026 / All Outputs Reserved
         </div>

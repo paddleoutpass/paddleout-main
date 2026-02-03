@@ -12,6 +12,9 @@ export default function Home() {
           <div className="text-lg font-black tracking-tighter uppercase">PADDLEOUT</div>
           <div className="flex gap-8 items-center">
              <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">System_v3.0</span>
+             <Link href="/lineup" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 px-4 py-2 rounded-md">
+                The Lineup
+             </Link>
              <Link href="/claim" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 px-4 py-2 rounded-md">
                 Claim Pass
              </Link>

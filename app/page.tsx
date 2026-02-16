@@ -36,10 +36,11 @@ export default function Home() {
               <Link href="/claim" className="px-5 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-all text-center">
                 Claim your Pass
               </Link>
-              <Link href="/lineup" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
-                Join the Waitlist
+              <Link href="#" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
+                Founders: Early Access
               </Link>
             </div>
+            <p className="text-xs text-slate-400 mt-3">Builders: free forever · Founders: early access coming March 2026</p>
             <p className="text-sm text-slate-400 mt-4">Free for builders, forever.</p>
           </div>
           <div className="flex items-center justify-center">
@@ -296,7 +297,7 @@ export default function Home() {
                 Early access for seed and Series A founders hiring their first engineers.
               </p>
               <Link href="/lineup" className="text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors">
-                Join Waitlist →
+                Preview Demo →
               </Link>
             </div>
 

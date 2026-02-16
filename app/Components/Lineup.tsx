@@ -618,11 +618,16 @@ export default function LineupPage() {
       <main className="pt-36 md:pt-40 px-6 max-w-5xl mx-auto pb-20">
         {/* Page header */}
         <div className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900 mb-1">
-            The Lineup
-          </h1>
+          <div className="flex items-center gap-3 mb-1">
+            <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900">
+              The Lineup
+            </h1>
+            <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-medium rounded">
+              Demo
+            </span>
+          </div>
           <p className="text-sm text-slate-500">
-            Verified builders. Real-time signal.
+            Preview with sample data. Real builders coming March 2026.
           </p>
         </div>
 

@@ -273,11 +273,11 @@ function parseMockDate(dateStr: string | null): Date | null {
 const VelocitySparkline = ({ data }: { data: number[] }) => {
   const max = Math.max(...data);
   return (
-    <div className="flex items-end gap-[3px] h-10">
+    <div className="flex items-end gap-[2px] h-8">
       {data.map((value, i) => (
         <div
           key={i}
-          className="w-[4px] rounded-sm bg-white/20 group-hover:bg-white/30 transition-colors"
+          className="w-[3px] rounded-sm bg-slate-200 group-hover:bg-slate-300 transition-colors"
           style={{ height: `${(value / max) * 100}%` }}
         />
       ))}
@@ -288,15 +288,15 @@ const VelocitySparkline = ({ data }: { data: number[] }) => {
 const StatusBadge = ({ status, date }: { status: "available" | "soon"; date: string | null }) => {
   if (status === "available") {
     return (
-      <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-green-500 shrink-0">
-        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+      <span className="flex items-center gap-1.5 text-xs text-emerald-600 shrink-0">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
         Now
       </span>
     );
   }
   return (
-    <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-yellow-500 shrink-0">
-      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
+    <span className="flex items-center gap-1.5 text-xs text-amber-600 shrink-0">
+      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
       {date}
     </span>
   );
@@ -330,24 +330,24 @@ const Dropdown = ({
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-4 py-2 bg-white/[0.02] border border-white/10 rounded-lg text-xs text-gray-400 hover:bg-white/[0.04] hover:text-white transition-colors"
+        className="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50 transition-colors"
       >
-        <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500">{label}</span>
-        <span className="text-white/80">{selected?.label}</span>
-        <svg className={`w-3 h-3 text-gray-500 transition-transform ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <span className="text-xs text-slate-400">{label}:</span>
+        <span className="text-slate-700">{selected?.label}</span>
+        <svg className={`w-3 h-3 text-slate-400 transition-transform ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
       {open && (
-        <div className="absolute top-full mt-2 left-0 bg-[#141415] border border-white/10 rounded-xl shadow-2xl py-2 min-w-[200px] z-50">
+        <div className="absolute top-full mt-1 left-0 bg-white border border-slate-200 rounded-lg shadow-lg py-1 min-w-[160px] z-50">
           {options.map((opt) => (
             <button
               key={opt.value}
               onClick={() => { onChange(opt.value); setOpen(false); }}
-              className={`w-full text-left px-4 py-2.5 text-xs transition-colors ${
+              className={`w-full text-left px-3 py-2 text-sm transition-colors ${
                 opt.value === value
-                  ? "text-white bg-white/[0.04]"
-                  : "text-gray-400 hover:bg-white/[0.04] hover:text-white"
+                  ? "text-slate-900 bg-slate-50"
+                  : "text-slate-600 hover:bg-slate-50"
               }`}
             >
               {opt.label}
@@ -360,36 +360,36 @@ const Dropdown = ({
 };
 
 const DeveloperCard = ({ dev }: { dev: Developer }) => (
-  <div className="group p-6 bg-white/[0.02] border border-white/10 rounded-xl hover:bg-white/[0.04] transition-colors flex flex-col">
-    {/* Header: photo + name + status */}
-    <div className="flex items-start justify-between mb-5">
-      <div className="flex items-center gap-3">
-        <div className="h-10 w-10 bg-white text-black rounded-full flex items-center justify-center font-black text-xs shrink-0">
+  <div className="group p-5 bg-white border border-slate-200 rounded-xl hover:shadow-md transition-all flex flex-col">
+    {/* Header */}
+    <div className="flex items-start justify-between mb-4">
+      <div className="flex items-center gap-3 min-w-0">
+        <div className="h-10 w-10 bg-slate-800 text-white rounded-full flex items-center justify-center font-medium text-xs shrink-0">
           {dev.initials}
         </div>
         <div className="min-w-0">
-          <h3 className="text-sm font-bold tracking-tight truncate">{dev.name}</h3>
-          <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest truncate">{dev.title}</p>
+          <h3 className="text-sm font-medium text-slate-800 truncate">{dev.name}</h3>
+          <p className="text-xs text-slate-500 truncate">{dev.title}</p>
         </div>
       </div>
       <StatusBadge status={dev.status} date={dev.availableDate} />
     </div>
 
     {/* Signal + Sparkline */}
-    <div className="flex items-end justify-between mb-5 pb-5 border-b border-white/5">
+    <div className="flex items-end justify-between mb-4 pb-4 border-b border-slate-100">
       <div>
-        <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest mb-1">Signal</p>
-        <p className="text-3xl font-black tracking-tighter">{dev.signalScore}</p>
+        <p className="text-xs text-slate-400 mb-0.5">Signal</p>
+        <p className="text-2xl font-semibold text-slate-800">{dev.signalScore}</p>
       </div>
       <VelocitySparkline data={dev.velocityData} />
     </div>
 
     {/* Skill tags */}
-    <div className="flex flex-wrap gap-1.5 mb-4">
+    <div className="flex flex-wrap gap-1.5 mb-3">
       {dev.skills.slice(0, 4).map((skill) => (
         <span
           key={skill}
-          className="px-2.5 py-1 bg-white/[0.04] border border-white/5 rounded-full text-[10px] font-mono text-gray-400 uppercase tracking-wider"
+          className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600"
         >
           {skill}
         </span>
@@ -397,31 +397,27 @@ const DeveloperCard = ({ dev }: { dev: Developer }) => (
     </div>
 
     {/* Details */}
-    <div className="space-y-2 mb-5 flex-1">
-      <p className="text-xs text-gray-400">
-        <span className="text-white font-semibold">{dev.hoursPerWeek} hrs/week</span>
-        {dev.availableDate ? (
-          <span> &middot; Available {dev.availableDate}</span>
-        ) : (
-          <span> &middot; Available now</span>
-        )}
+    <div className="space-y-1.5 mb-4 flex-1">
+      <p className="text-xs text-slate-500">
+        <span className="text-slate-700 font-medium">{dev.hoursPerWeek} hrs/week</span>
+        {dev.availableDate ? ` · Available ${dev.availableDate}` : " · Available now"}
       </p>
-      <p className="text-xs text-gray-500">
-        Looking for: <span className="text-gray-400">{dev.projectPreference}</span>
+      <p className="text-xs text-slate-500">
+        Looking for: {dev.projectPreference}
       </p>
-      <p className="text-xs text-gray-500">
-        <span className="text-white/70">{dev.vouchCount}</span> verified vouches
+      <p className="text-xs text-slate-500">
+        {dev.vouchCount} verified vouches
       </p>
     </div>
 
     {/* CTA */}
     <div className="mt-auto">
       {dev.status === "available" ? (
-        <button className="w-full px-4 py-3 bg-white text-black font-bold text-[10px] uppercase tracking-[0.15em] hover:bg-gray-200 transition-colors">
+        <button className="w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-colors">
           Message
         </button>
       ) : (
-        <button className="w-full px-4 py-3 border border-white/10 text-gray-400 font-bold text-[10px] uppercase tracking-[0.15em] hover:text-white hover:border-white/20 transition-colors">
+        <button className="w-full px-4 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 transition-colors">
           Set Pulse
         </button>
       )}
@@ -461,7 +457,6 @@ export default function LineupPage() {
   const filteredDevelopers = useMemo(() => {
     let result = [...MOCK_DEVELOPERS];
 
-    // Availability
     if (filters.availability !== "all") {
       const now = new Date();
       result = result.filter((dev) => {
@@ -476,7 +471,6 @@ export default function LineupPage() {
       });
     }
 
-    // Hours
     if (filters.hoursPerWeek !== "all") {
       result = result.filter((dev) => {
         if (filters.hoursPerWeek === "10-20") return dev.hoursPerWeek >= 10 && dev.hoursPerWeek <= 20;
@@ -486,19 +480,16 @@ export default function LineupPage() {
       });
     }
 
-    // Stack
     if (filters.selectedStacks.length > 0) {
       result = result.filter((dev) =>
         dev.skills.some((skill) => filters.selectedStacks.includes(skill))
       );
     }
 
-    // Budget
     if (filters.budgetMax < 300) {
       result = result.filter((dev) => dev.hourlyRate <= filters.budgetMax);
     }
 
-    // Sort
     switch (filters.sortBy) {
       case "highest-signal":
         result.sort((a, b) => b.signalScore - a.signalScore);
@@ -524,26 +515,24 @@ export default function LineupPage() {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0b] text-white font-sans selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-[#fafafa] text-slate-900 font-sans antialiased">
       {/* NAV */}
-      <nav className="fixed top-0 w-full bg-[#0a0a0b]/80 backdrop-blur-xl border-b border-white/5 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-lg font-black tracking-tighter uppercase">
-            PADDLEOUT
+      <nav className="fixed top-0 w-full bg-[#fafafa]/80 backdrop-blur-xl border-b border-slate-200/60 z-50">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-base font-semibold tracking-tight text-slate-800">
+            paddleout
           </Link>
-          <div className="flex gap-4 items-center">
-            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest hidden md:block">
-              System_v3.0
-            </span>
+          <div className="flex gap-2 sm:gap-4 items-center">
+            <span className="text-xs text-slate-400 hidden md:block">Launching March 2026</span>
             <Link
               href="/lineup"
-              className="text-[10px] font-bold uppercase tracking-widest text-white transition-colors border border-white/20 px-4 py-2 rounded-md"
+              className="text-sm font-medium text-slate-800 transition-colors px-3 py-2 rounded-lg bg-slate-100"
             >
               The Lineup
             </Link>
             <Link
               href="/claim"
-              className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 px-4 py-2 rounded-md"
+              className="text-sm text-slate-500 hover:text-slate-800 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 hidden sm:inline-block"
             >
               Claim Pass
             </Link>
@@ -552,20 +541,20 @@ export default function LineupPage() {
       </nav>
 
       {/* FILTER BAR */}
-      <div className="fixed top-[65px] left-0 right-0 bg-[#0a0a0b]/90 backdrop-blur-xl border-b border-white/5 z-40">
-        <div className="max-w-7xl mx-auto px-6 py-3">
+      <div className="fixed top-[65px] left-0 right-0 bg-[#fafafa]/90 backdrop-blur-xl border-b border-slate-200/60 z-40">
+        <div className="max-w-5xl mx-auto px-6 py-3">
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
-            className="md:hidden flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-2"
+            className="md:hidden flex items-center gap-2 text-sm text-slate-600 mb-2"
           >
             Filters
-            <svg className={`w-3 h-3 transition-transform ${mobileFiltersOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className={`w-4 h-4 transition-transform ${mobileFiltersOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
-          <div className={`flex-wrap items-center gap-4 ${mobileFiltersOpen ? "flex" : "hidden md:flex"}`}>
+          <div className={`flex-wrap items-center gap-3 ${mobileFiltersOpen ? "flex" : "hidden md:flex"}`}>
             <Dropdown
               label="When"
               options={AVAILABILITY_OPTIONS}
@@ -580,16 +569,16 @@ export default function LineupPage() {
             />
 
             {/* Stack multi-select */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mr-1">Stack</span>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-slate-400 mr-1">Stack:</span>
               {STACK_OPTIONS.map((stack) => (
                 <button
                   key={stack}
                   onClick={() => toggleStack(stack)}
-                  className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider transition-colors border ${
+                  className={`px-2.5 py-1 rounded-lg text-xs transition-colors ${
                     filters.selectedStacks.includes(stack)
-                      ? "bg-white/10 border-white/20 text-white"
-                      : "bg-white/[0.02] border-white/5 text-gray-500 hover:border-white/10 hover:text-gray-300"
+                      ? "bg-slate-800 text-white"
+                      : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
                   }`}
                 >
                   {stack}
@@ -598,8 +587,8 @@ export default function LineupPage() {
             </div>
 
             {/* Budget slider */}
-            <div className="flex items-center gap-3">
-              <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Budget</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-400">Budget:</span>
               <input
                 type="range"
                 min={50}
@@ -607,19 +596,18 @@ export default function LineupPage() {
                 step={10}
                 value={filters.budgetMax}
                 onChange={(e) => updateFilter("budgetMax", Number(e.target.value))}
-                className="w-28 h-1 bg-white/10 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+                className="w-24 h-1 bg-slate-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-slate-800 [&::-webkit-slider-thumb]:cursor-pointer"
               />
-              <span className="text-[10px] font-mono text-gray-400">${filters.budgetMax}/hr</span>
-              <span className="text-[10px] font-mono text-green-500">{developersInBudget} in budget</span>
+              <span className="text-xs text-slate-600">${filters.budgetMax}/hr</span>
+              <span className="text-xs text-emerald-600">{developersInBudget} in budget</span>
             </div>
 
-            {/* Clear */}
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-gray-600 hover:text-gray-300 transition-colors"
+                className="px-2 py-1 text-xs text-slate-400 hover:text-slate-600 transition-colors"
               >
-                Clear filters
+                Clear
               </button>
             )}
           </div>
@@ -627,21 +615,21 @@ export default function LineupPage() {
       </div>
 
       {/* MAIN CONTENT */}
-      <main className="pt-40 md:pt-44 px-6 max-w-7xl mx-auto pb-24">
+      <main className="pt-36 md:pt-40 px-6 max-w-5xl mx-auto pb-20">
         {/* Page header */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none mb-3">
+        <div className="mb-8">
+          <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900 mb-1">
             The Lineup
           </h1>
-          <p className="text-gray-500 text-[10px] font-mono uppercase tracking-[0.3em]">
-            Verified builders. Real-time signal. Zero noise.
+          <p className="text-sm text-slate-500">
+            Verified builders. Real-time signal.
           </p>
         </div>
 
         {/* Sort bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-          <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
-            {filteredDevelopers.length} builder{filteredDevelopers.length !== 1 ? "s" : ""} in the lineup
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+          <span className="text-sm text-slate-500">
+            {filteredDevelopers.length} builder{filteredDevelopers.length !== 1 ? "s" : ""}
           </span>
           <Dropdown
             label="Sort"
@@ -653,17 +641,17 @@ export default function LineupPage() {
 
         {/* Results grid */}
         {filteredDevelopers.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredDevelopers.map((dev) => (
               <DeveloperCard key={dev.id} dev={dev} />
             ))}
           </div>
         ) : (
-          <div className="py-24 text-center">
-            <p className="text-gray-500 text-sm mb-4">No builders match your current filters.</p>
+          <div className="py-16 text-center">
+            <p className="text-slate-500 text-sm mb-3">No builders match your filters.</p>
             <button
               onClick={clearFilters}
-              className="text-[10px] font-mono uppercase tracking-widest text-gray-400 hover:text-white transition-colors underline underline-offset-4"
+              className="text-sm text-slate-600 hover:text-slate-800 transition-colors underline underline-offset-2"
             >
               Clear all filters
             </button>

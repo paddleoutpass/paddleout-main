@@ -75,7 +75,7 @@ export default function ClaimPage() {
             <iframe
               src="https://tally.so/embed/LZbED1?alignLeft=1&hideTitle=1&transparentBackground=1"
               width="100%"
-              height="500"
+              height="800"
               frameBorder="0"
               title="Claim Your Builder Pass"
               className="rounded-xl"

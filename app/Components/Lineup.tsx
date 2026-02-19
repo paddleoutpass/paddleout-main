@@ -523,7 +523,7 @@ export default function LineupPage() {
             paddleout
           </Link>
           <div className="flex gap-2 sm:gap-4 items-center">
-            <span className="text-xs text-slate-400 hidden md:block">Launching March 2026</span>
+            <span className="text-xs text-slate-400 hidden md:block">Launching April 2026</span>
             <Link
               href="/lineup"
               className="text-sm font-medium text-slate-800 transition-colors px-3 py-2 rounded-lg bg-slate-100"
@@ -531,7 +531,7 @@ export default function LineupPage() {
               The Lineup
             </Link>
             <Link
-              href="/claim"
+              href="/builders"
               className="text-sm text-slate-500 hover:text-slate-800 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 hidden sm:inline-block"
             >
               Claim Pass
@@ -627,7 +627,7 @@ export default function LineupPage() {
             </span>
           </div>
           <p className="text-sm text-slate-500">
-            Preview with sample data. Real builders coming March 2026.
+            Preview with sample data. Real builders coming April 2026.
           </p>
         </div>
 

@@ -36,7 +36,7 @@ export default function Home() {
               <Link href="/builders" className="px-5 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-all text-center">
                 Claim your Pass
               </Link>
-              <Link href="#" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
+              <Link href="/founders" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
                 Founders: Early Access
               </Link>
             </div>

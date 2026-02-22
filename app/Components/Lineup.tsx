@@ -7,16 +7,18 @@ import Link from "next/link";
 
 interface Developer {
   id: string;
-  name: string;
+  handle: string;
+  badge: string;
   title: string;
-  initials: string;
   status: "available" | "soon";
   availableDate: string | null;
   signalScore: number;
-  velocityData: number[];
+  velocityPct: string;
+  radar: number[];
   skills: string[];
-  projectPreference: string;
   vouchCount: number;
+  vouchQuote: string;
+  vouchSource: string;
   lastUpdated: string;
 }
 
@@ -52,173 +54,150 @@ const DEFAULT_FILTERS: FilterState = {
 
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
+// radar axes: [Velocity, Frontend, Backend, Infra, AI/LLM, Product]
 const MOCK_DEVELOPERS: Developer[] = [
   {
-    id: "1",
-    name: "Marcus Chen",
-    title: "Senior Systems Engineer",
-    initials: "MC",
-    status: "available",
-    availableDate: null,
-    signalScore: 9.4,
-    velocityData: [3, 4, 4, 5, 6, 5, 7, 7, 8, 8, 9, 10],
+    id: "1", handle: "Builder #291", badge: "Tier-1 Alum",
+    title: "Systems Engineer",
+    status: "available", availableDate: null,
+    signalScore: 9.4, velocityPct: "Top 3%",
+    radar: [0.95, 0.55, 0.90, 0.92, 0.60, 0.50],
     skills: ["Rust", "Go", "TypeScript", "Docker"],
-    projectPreference: "Distributed systems & infrastructure",
     vouchCount: 5,
+    vouchQuote: "Rebuilt core infra under load. Zero downtime.",
+    vouchSource: "Verified CTO · Series B",
     lastUpdated: "2026-01-30",
   },
   {
-    id: "2",
-    name: "Aisha Patel",
+    id: "2", handle: "Builder #842", badge: "Ex-Founder",
     title: "ML Platform Engineer",
-    initials: "AP",
-    status: "soon",
-    availableDate: "March 15",
-    signalScore: 9.8,
-    velocityData: [2, 3, 5, 5, 6, 7, 7, 8, 9, 9, 10, 10],
+    status: "soon", availableDate: "March 15",
+    signalScore: 9.8, velocityPct: "Top 1%",
+    radar: [0.98, 0.60, 0.88, 0.75, 0.95, 0.65],
     skills: ["Python", "Rust", "TypeScript", "AWS"],
-    projectPreference: "AI/ML infrastructure",
     vouchCount: 7,
+    vouchQuote: "Shipped our ML pipeline in 3 weeks. Pure 0-to-1 grit.",
+    vouchSource: "Verified CTO · YC W22",
     lastUpdated: "2026-01-28",
   },
   {
-    id: "3",
-    name: "Jake Morrison",
+    id: "3", handle: "Builder #173", badge: "Tier-1 Alum",
     title: "Full-Stack Engineer",
-    initials: "JM",
-    status: "available",
-    availableDate: null,
-    signalScore: 8.6,
-    velocityData: [4, 5, 5, 4, 6, 6, 7, 7, 8, 7, 9, 8],
+    status: "available", availableDate: null,
+    signalScore: 8.6, velocityPct: "Top 8%",
+    radar: [0.82, 0.80, 0.78, 0.55, 0.60, 0.75],
     skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    projectPreference: "Product-focused SaaS builds",
     vouchCount: 3,
+    vouchQuote: "Owned the entire product surface. Shipped v1 solo.",
+    vouchSource: "Verified Head of Product · YC S23",
     lastUpdated: "2026-01-29",
   },
   {
-    id: "4",
-    name: "Lena Okoro",
+    id: "4", handle: "Builder #514", badge: "Tier-1 Alum",
     title: "Backend Architect",
-    initials: "LO",
-    status: "soon",
-    availableDate: "March 1",
-    signalScore: 9.2,
-    velocityData: [5, 5, 6, 7, 6, 8, 7, 9, 8, 9, 10, 10],
+    status: "soon", availableDate: "March 1",
+    signalScore: 9.2, velocityPct: "Top 4%",
+    radar: [0.90, 0.40, 0.95, 0.88, 0.70, 0.45],
     skills: ["Go", "Rust", "Python", "Kubernetes"],
-    projectPreference: "High-throughput API systems",
     vouchCount: 6,
+    vouchQuote: "10x'd our API throughput in two sprints. Incredible ownership.",
+    vouchSource: "Verified VP Eng · Series A",
     lastUpdated: "2026-01-27",
   },
   {
-    id: "5",
-    name: "Tom Nakamura",
+    id: "5", handle: "Builder #639", badge: "Ex-Founder",
     title: "Frontend Engineer",
-    initials: "TN",
-    status: "available",
-    availableDate: null,
-    signalScore: 8.1,
-    velocityData: [3, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9],
+    status: "available", availableDate: null,
+    signalScore: 8.1, velocityPct: "Top 12%",
+    radar: [0.78, 0.92, 0.50, 0.40, 0.45, 0.88],
     skills: ["React", "TypeScript", "Node.js"],
-    projectPreference: "Design systems & component libraries",
     vouchCount: 2,
+    vouchQuote: "Design eye + engineering execution. Rare combo.",
+    vouchSource: "Verified CEO · Seed",
     lastUpdated: "2026-01-31",
   },
   {
-    id: "6",
-    name: "Sara Lindqvist",
+    id: "6", handle: "Builder #427", badge: "Tier-1 Alum",
     title: "DevOps & Infra Lead",
-    initials: "SL",
-    status: "soon",
-    availableDate: "April 1",
-    signalScore: 9.0,
-    velocityData: [4, 5, 6, 5, 7, 7, 8, 8, 9, 8, 9, 10],
+    status: "soon", availableDate: "April 1",
+    signalScore: 9.0, velocityPct: "Top 5%",
+    radar: [0.92, 0.35, 0.78, 0.97, 0.55, 0.40],
     skills: ["Go", "Python", "Kubernetes", "AWS"],
-    projectPreference: "Cloud-native platform engineering",
     vouchCount: 4,
+    vouchQuote: "Took us from 99.1% to 99.97% uptime in one quarter.",
+    vouchSource: "Verified CTO · Series A",
     lastUpdated: "2026-01-25",
   },
   {
-    id: "7",
-    name: "Diego Ramirez",
-    title: "Smart Contract Engineer",
-    initials: "DR",
-    status: "soon",
-    availableDate: "March 10",
-    signalScore: 8.3,
-    velocityData: [2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9, 9],
+    id: "7", handle: "Builder #318", badge: "Tier-1 Alum",
+    title: "Web3 Protocol Engineer",
+    status: "soon", availableDate: "March 10",
+    signalScore: 8.3, velocityPct: "Top 10%",
+    radar: [0.80, 0.55, 0.85, 0.70, 0.65, 0.50],
     skills: ["Rust", "TypeScript", "Solidity"],
-    projectPreference: "Web3 protocol development",
     vouchCount: 3,
+    vouchQuote: "Shipped a live protocol under audit pressure. Didn't flinch.",
+    vouchSource: "Verified Eng Lead · Series B",
     lastUpdated: "2026-01-26",
   },
   {
-    id: "8",
-    name: "Priya Kapoor",
+    id: "8", handle: "Builder #715", badge: "Tier-1 Alum",
     title: "Data Platform Engineer",
-    initials: "PK",
-    status: "available",
-    availableDate: null,
-    signalScore: 8.9,
-    velocityData: [3, 4, 5, 6, 5, 7, 7, 8, 8, 9, 9, 10],
+    status: "available", availableDate: null,
+    signalScore: 8.9, velocityPct: "Top 5%",
+    radar: [0.88, 0.45, 0.85, 0.72, 0.90, 0.55],
     skills: ["Python", "Go", "TypeScript", "AWS"],
-    projectPreference: "Real-time data pipelines",
     vouchCount: 5,
+    vouchQuote: "Best data hire we've made. Diagnosed and fixed in hours.",
+    vouchSource: "Verified Eng Lead · YC W21",
     lastUpdated: "2026-02-01",
   },
   {
-    id: "9",
-    name: "Elias Brandt",
+    id: "9", handle: "Builder #203", badge: "Ex-Founder",
     title: "Mobile & Systems Engineer",
-    initials: "EB",
-    status: "soon",
-    availableDate: "March 20",
-    signalScore: 7.8,
-    velocityData: [2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8],
+    status: "soon", availableDate: "March 20",
+    signalScore: 7.8, velocityPct: "Top 18%",
+    radar: [0.75, 0.85, 0.65, 0.50, 0.55, 0.80],
     skills: ["React", "TypeScript", "Swift"],
-    projectPreference: "Cross-platform mobile apps",
     vouchCount: 2,
+    vouchQuote: "Shipped our iOS app from zero. Nailed the launch.",
+    vouchSource: "Verified CEO · Seed",
     lastUpdated: "2026-01-24",
   },
   {
-    id: "10",
-    name: "Nina Volkov",
+    id: "10", handle: "Builder #891", badge: "Tier-1 Alum",
     title: "Security Engineer",
-    initials: "NV",
-    status: "soon",
-    availableDate: "April 15",
-    signalScore: 9.6,
-    velocityData: [4, 5, 6, 6, 7, 8, 8, 9, 9, 10, 10, 10],
+    status: "soon", availableDate: "April 15",
+    signalScore: 9.6, velocityPct: "Top 2%",
+    radar: [0.96, 0.40, 0.88, 0.94, 0.72, 0.42],
     skills: ["Rust", "Go", "Python"],
-    projectPreference: "Security audits & hardening",
     vouchCount: 8,
+    vouchQuote: "Found critical vulns nobody else caught. Methodical and fast.",
+    vouchSource: "Verified CTO · Series B",
     lastUpdated: "2026-01-23",
   },
   {
-    id: "11",
-    name: "Owen Park",
+    id: "11", handle: "Builder #156", badge: "Tier-1 Alum",
     title: "API & Integrations Engineer",
-    initials: "OP",
-    status: "soon",
-    availableDate: "March 5",
-    signalScore: 7.5,
-    velocityData: [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8],
+    status: "soon", availableDate: "March 5",
+    signalScore: 7.5, velocityPct: "Top 20%",
+    radar: [0.72, 0.60, 0.80, 0.62, 0.58, 0.55],
     skills: ["Node.js", "TypeScript", "Python", "Go"],
-    projectPreference: "Third-party API integrations",
     vouchCount: 2,
+    vouchQuote: "Integrated 6 third-party APIs in two weeks. Solid communicator.",
+    vouchSource: "Verified VP Eng · Seed",
     lastUpdated: "2026-01-22",
   },
   {
-    id: "12",
-    name: "Fatima Al-Rashid",
+    id: "12", handle: "Builder #463", badge: "Tier-1 Alum",
     title: "Compiler & Tooling Engineer",
-    initials: "FA",
-    status: "soon",
-    availableDate: "May 1",
-    signalScore: 7.2,
-    velocityData: [1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8],
+    status: "soon", availableDate: "May 1",
+    signalScore: 7.2, velocityPct: "Top 22%",
+    radar: [0.70, 0.45, 0.82, 0.68, 0.60, 0.40],
     skills: ["Rust", "Go", "TypeScript"],
-    projectPreference: "Developer tooling & language infra",
     vouchCount: 1,
+    vouchQuote: "Cut our build times by 40%. Quiet, deep, relentless.",
+    vouchSource: "Verified Eng Lead · Series A",
     lastUpdated: "2026-01-20",
   },
 ];
@@ -231,29 +210,51 @@ function parseMockDate(dateStr: string | null): Date | null {
   return isNaN(parsed.getTime()) ? null : parsed;
 }
 
-// ─── Sub-Components ──────────────────────────────────────────────────────────
+// ─── Radar Chart ─────────────────────────────────────────────────────────────
 
-const VelocitySparkline = ({ data }: { data: number[] }) => {
-  const max = Math.max(...data);
-  return (
-    <div className="flex items-end gap-[2px] h-8">
-      {data.map((value, i) => (
-        <div
-          key={i}
-          className="w-[3px] rounded-sm bg-slate-200 group-hover:bg-slate-300 transition-colors"
-          style={{ height: `${(value / max) * 100}%` }}
-        />
-      ))}
-    </div>
-  );
-};
+const CX = 50, CY = 50, R = 36;
+const LEVELS = [0.33, 0.66, 1.0];
+
+function pt(i: number, val: number) {
+  const angle = ((i * 60 - 90) * Math.PI) / 180;
+  return { x: CX + R * val * Math.cos(angle), y: CY + R * val * Math.sin(angle) };
+}
+
+function poly(vals: number[]) {
+  return vals.map((v, i) => {
+    const p = pt(i, v);
+    return `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+  }).join(" ") + " Z";
+}
+
+const MiniRadar = ({ data }: { data: number[] }) => (
+  <svg viewBox="0 0 100 100" className="w-full h-full">
+    {LEVELS.map((l) => (
+      <path key={l} d={poly(Array(6).fill(l))} fill="none" stroke="#e2e8f0" strokeWidth="0.8" />
+    ))}
+    {Array.from({ length: 6 }, (_, i) => {
+      const end = pt(i, 1);
+      return <line key={i} x1={CX} y1={CY} x2={end.x.toFixed(1)} y2={end.y.toFixed(1)} stroke="#e2e8f0" strokeWidth="0.8" />;
+    })}
+    <path d={poly(data)} fill="rgba(30,41,59,0.1)" stroke="#1e293b" strokeWidth="1.5" strokeLinejoin="round" />
+    {data.map((v, i) => {
+      const p = pt(i, v);
+      return <circle key={i} cx={p.x} cy={p.y} r="2" fill="#1e293b" />;
+    })}
+  </svg>
+);
+
+// ─── Sub-Components ──────────────────────────────────────────────────────────
 
 const StatusBadge = ({ status, date }: { status: "available" | "soon"; date: string | null }) => {
   if (status === "available") {
     return (
       <span className="flex items-center gap-1.5 text-xs text-emerald-600 shrink-0">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-        Now
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+        </span>
+        Open
       </span>
     );
   }
@@ -324,63 +325,65 @@ const Dropdown = ({
 
 const DeveloperCard = ({ dev }: { dev: Developer }) => (
   <div className="group p-5 bg-white border border-slate-200 rounded-xl hover:shadow-md transition-all flex flex-col">
+
     {/* Header */}
-    <div className="flex items-start justify-between mb-4">
-      <div className="flex items-center gap-3 min-w-0">
-        <div className="h-10 w-10 bg-slate-800 text-white rounded-full flex items-center justify-center font-medium text-xs shrink-0">
-          {dev.initials}
+    <div className="flex items-start justify-between mb-3">
+      <div>
+        <div className="flex items-center gap-2 mb-0.5">
+          <h3 className="text-sm font-semibold text-slate-800">{dev.handle}</h3>
+          <span className="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded">{dev.badge}</span>
         </div>
-        <div className="min-w-0">
-          <h3 className="text-sm font-medium text-slate-800 truncate">{dev.name}</h3>
-          <p className="text-xs text-slate-500 truncate">{dev.title}</p>
-        </div>
+        <p className="text-xs text-slate-500">{dev.title}</p>
       </div>
       <StatusBadge status={dev.status} date={dev.availableDate} />
     </div>
 
-    {/* Signal + Sparkline */}
-    <div className="flex items-end justify-between mb-4 pb-4 border-b border-slate-100">
-      <div>
-        <p className="text-xs text-slate-400 mb-0.5">Signal</p>
-        <p className="text-2xl font-semibold text-slate-800">{dev.signalScore}</p>
+    {/* Radar + Stats */}
+    <div className="flex gap-3 mb-3 pb-3 border-b border-slate-100">
+      <div className="w-20 h-20 shrink-0">
+        <MiniRadar data={dev.radar} />
       </div>
-      <VelocitySparkline data={dev.velocityData} />
+      <div className="flex flex-col justify-center gap-1.5 flex-1">
+        <div className="flex justify-between">
+          <p className="text-[10px] text-slate-400">Signal</p>
+          <p className="text-[10px] font-semibold text-slate-800">{dev.signalScore}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="text-[10px] text-slate-400">Velocity</p>
+          <p className="text-[10px] font-semibold text-slate-800">{dev.velocityPct}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="text-[10px] text-slate-400">Vouches</p>
+          <p className="text-[10px] font-semibold text-slate-800">{dev.vouchCount} verified</p>
+        </div>
+      </div>
     </div>
 
-    {/* Skill tags */}
+    {/* Skills */}
     <div className="flex flex-wrap gap-1.5 mb-3">
       {dev.skills.slice(0, 4).map((skill) => (
-        <span
-          key={skill}
-          className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600"
-        >
-          {skill}
-        </span>
+        <span key={skill} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{skill}</span>
       ))}
     </div>
 
-    {/* Details */}
-    <div className="space-y-1.5 mb-4 flex-1">
-      <p className="text-xs text-slate-500">
-        {dev.availableDate ? `Available ${dev.availableDate}` : "Available now"}
-      </p>
-      <p className="text-xs text-slate-500">
-        Looking for: {dev.projectPreference}
-      </p>
-      <p className="text-xs text-slate-500">
-        {dev.vouchCount} verified vouches
-      </p>
+    {/* Vouch snippet */}
+    <div className="bg-slate-50 rounded-lg p-3 mb-4 flex-1">
+      <p className="text-[11px] text-slate-600 italic leading-relaxed mb-1">&ldquo;{dev.vouchQuote}&rdquo;</p>
+      <p className="text-[10px] text-slate-400 font-medium">{dev.vouchSource}</p>
     </div>
 
     {/* CTA */}
     <div className="mt-auto">
       {dev.status === "available" ? (
-        <button className="w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-colors">
-          Message
-        </button>
+        <>
+          <button className="w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-colors mb-1.5">
+            Lock in 15 Minutes
+          </button>
+          <p className="text-[10px] text-slate-400 text-center">Double opt-in. Identity stays hidden until both confirm.</p>
+        </>
       ) : (
         <button className="w-full px-4 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 transition-colors">
-          Set Pulse
+          Set Pulse · {dev.availableDate}
         </button>
       )}
     </div>

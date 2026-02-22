@@ -79,8 +79,37 @@ export default function ClaimPage() {
           </div>
         </section>
 
-        {/* WHAT YOUR PASS SHOWS */}
+        {/* PRIVACY */}
         <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-10">
+              <p className="text-sm text-slate-400 mb-2">Your privacy</p>
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900">
+                You&apos;re Builder #XXX until you decide otherwise.
+              </h2>
+              <p className="text-slate-500 text-sm mt-3 max-w-xl leading-relaxed">
+                The Blinded Identity Model lets us host elite, currently-employed engineers who would never post on LinkedIn. You get the upside of visibility without the risk of your employer finding out.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                { title: "Read-only GitHub sync", body: "We analyze commit patterns and language distribution. We never access your code, private repos, or IP. You can revoke access anytime." },
+                { title: "Blinded by default", body: "Founders see your handle, your signal data, and your vouches — never your name or employer until you accept their request." },
+                { title: "You choose what's visible", body: "Select which repos appear. Turn off specific projects. Show only public activity if you prefer. Full control, always." },
+                { title: "No recruiter access. Ever.", body: "Recruiters are explicitly blocked from The Lineup. Only verified, recently funded founders can see your Pass or send a request." },
+              ].map(({ title, body }) => (
+                <div key={title} className="p-5 bg-[#fafafa] border border-slate-200/80 rounded-xl">
+                  <h4 className="text-sm font-medium text-slate-800 mb-1.5">{title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed" dangerouslySetInnerHTML={{ __html: body }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* WHAT YOUR PASS SHOWS */}
+        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10">
               <p className="text-sm text-slate-400 mb-2">Your Builder Pass</p>
@@ -109,7 +138,7 @@ export default function ClaimPage() {
         </section>
 
         {/* WHO REACHES OUT */}
-        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60">
+        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60 bg-white">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
@@ -151,35 +180,6 @@ export default function ClaimPage() {
                   <p className="text-xs text-slate-400">They&apos;ve already seen your Stack Radar. This is a warm intro.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* PRIVACY */}
-        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60 bg-white">
-          <div className="max-w-5xl mx-auto">
-            <div className="mb-10">
-              <p className="text-sm text-slate-400 mb-2">Your privacy</p>
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900">
-                You&apos;re Builder #XXX until you decide otherwise.
-              </h2>
-              <p className="text-slate-500 text-sm mt-3 max-w-xl leading-relaxed">
-                The Blinded Identity Model lets us host elite, currently-employed engineers who would never post on LinkedIn. You get the upside of visibility without the risk of your employer finding out.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-3">
-              {[
-                { title: "Read-only GitHub sync", body: "We analyze commit patterns and language distribution. We never access your code, private repos, or IP. You can revoke access anytime." },
-                { title: "Blinded by default", body: "Founders see your handle, your signal data, and your vouches — never your name or employer until you accept their request." },
-                { title: "You choose what&apos;s visible", body: "Select which repos appear. Turn off specific projects. Show only public activity if you prefer. Full control, always." },
-                { title: "No recruiter access. Ever.", body: "Recruiters are explicitly blocked from The Lineup. Only verified, recently funded founders can see your Pass or send a request." },
-              ].map(({ title, body }) => (
-                <div key={title} className="p-5 bg-[#fafafa] border border-slate-200/80 rounded-xl">
-                  <h4 className="text-sm font-medium text-slate-800 mb-1.5">{title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed" dangerouslySetInnerHTML={{ __html: body }} />
-                </div>
-              ))}
             </div>
           </div>
         </section>

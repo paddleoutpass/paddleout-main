@@ -15,18 +15,14 @@ interface Developer {
   signalScore: number;
   velocityData: number[];
   skills: string[];
-  hoursPerWeek: number;
   projectPreference: string;
   vouchCount: number;
-  hourlyRate: number;
   lastUpdated: string;
 }
 
 interface FilterState {
   availability: string;
-  hoursPerWeek: string;
   selectedStacks: string[];
-  budgetMax: number;
   sortBy: string;
 }
 
@@ -41,13 +37,6 @@ const AVAILABILITY_OPTIONS = [
   { value: "30-days", label: "30 Days" },
 ];
 
-const HOURS_OPTIONS = [
-  { value: "all", label: "All" },
-  { value: "10-20", label: "10–20 hrs" },
-  { value: "20-40", label: "20–40 hrs" },
-  { value: "40+", label: "40+ hrs" },
-];
-
 const SORT_OPTIONS = [
   { value: "best-match", label: "Best Match" },
   { value: "highest-signal", label: "Highest Signal" },
@@ -57,9 +46,7 @@ const SORT_OPTIONS = [
 
 const DEFAULT_FILTERS: FilterState = {
   availability: "all",
-  hoursPerWeek: "all",
   selectedStacks: [],
-  budgetMax: 300,
   sortBy: "best-match",
 };
 
@@ -76,10 +63,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 9.4,
     velocityData: [3, 4, 4, 5, 6, 5, 7, 7, 8, 8, 9, 10],
     skills: ["Rust", "Go", "TypeScript", "Docker"],
-    hoursPerWeek: 40,
     projectPreference: "Distributed systems & infrastructure",
     vouchCount: 5,
-    hourlyRate: 195,
     lastUpdated: "2026-01-30",
   },
   {
@@ -92,10 +77,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 9.8,
     velocityData: [2, 3, 5, 5, 6, 7, 7, 8, 9, 9, 10, 10],
     skills: ["Python", "Rust", "TypeScript", "AWS"],
-    hoursPerWeek: 30,
     projectPreference: "AI/ML infrastructure",
     vouchCount: 7,
-    hourlyRate: 225,
     lastUpdated: "2026-01-28",
   },
   {
@@ -108,10 +91,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 8.6,
     velocityData: [4, 5, 5, 4, 6, 6, 7, 7, 8, 7, 9, 8],
     skills: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    hoursPerWeek: 20,
     projectPreference: "Product-focused SaaS builds",
     vouchCount: 3,
-    hourlyRate: 150,
     lastUpdated: "2026-01-29",
   },
   {
@@ -124,10 +105,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 9.2,
     velocityData: [5, 5, 6, 7, 6, 8, 7, 9, 8, 9, 10, 10],
     skills: ["Go", "Rust", "Python", "Kubernetes"],
-    hoursPerWeek: 40,
     projectPreference: "High-throughput API systems",
     vouchCount: 6,
-    hourlyRate: 210,
     lastUpdated: "2026-01-27",
   },
   {
@@ -140,10 +119,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 8.1,
     velocityData: [3, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9],
     skills: ["React", "TypeScript", "Node.js"],
-    hoursPerWeek: 15,
     projectPreference: "Design systems & component libraries",
     vouchCount: 2,
-    hourlyRate: 120,
     lastUpdated: "2026-01-31",
   },
   {
@@ -156,10 +133,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 9.0,
     velocityData: [4, 5, 6, 5, 7, 7, 8, 8, 9, 8, 9, 10],
     skills: ["Go", "Python", "Kubernetes", "AWS"],
-    hoursPerWeek: 30,
     projectPreference: "Cloud-native platform engineering",
     vouchCount: 4,
-    hourlyRate: 185,
     lastUpdated: "2026-01-25",
   },
   {
@@ -172,10 +147,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 8.3,
     velocityData: [2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 9, 9],
     skills: ["Rust", "TypeScript", "Solidity"],
-    hoursPerWeek: 20,
     projectPreference: "Web3 protocol development",
     vouchCount: 3,
-    hourlyRate: 175,
     lastUpdated: "2026-01-26",
   },
   {
@@ -188,10 +161,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 8.9,
     velocityData: [3, 4, 5, 6, 5, 7, 7, 8, 8, 9, 9, 10],
     skills: ["Python", "Go", "TypeScript", "AWS"],
-    hoursPerWeek: 40,
     projectPreference: "Real-time data pipelines",
     vouchCount: 5,
-    hourlyRate: 190,
     lastUpdated: "2026-02-01",
   },
   {
@@ -204,10 +175,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 7.8,
     velocityData: [2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8],
     skills: ["React", "TypeScript", "Swift"],
-    hoursPerWeek: 15,
     projectPreference: "Cross-platform mobile apps",
     vouchCount: 2,
-    hourlyRate: 140,
     lastUpdated: "2026-01-24",
   },
   {
@@ -220,10 +189,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 9.6,
     velocityData: [4, 5, 6, 6, 7, 8, 8, 9, 9, 10, 10, 10],
     skills: ["Rust", "Go", "Python"],
-    hoursPerWeek: 30,
     projectPreference: "Security audits & hardening",
     vouchCount: 8,
-    hourlyRate: 250,
     lastUpdated: "2026-01-23",
   },
   {
@@ -236,10 +203,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 7.5,
     velocityData: [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8],
     skills: ["Node.js", "TypeScript", "Python", "Go"],
-    hoursPerWeek: 20,
     projectPreference: "Third-party API integrations",
     vouchCount: 2,
-    hourlyRate: 130,
     lastUpdated: "2026-01-22",
   },
   {
@@ -252,10 +217,8 @@ const MOCK_DEVELOPERS: Developer[] = [
     signalScore: 7.2,
     velocityData: [1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8],
     skills: ["Rust", "Go", "TypeScript"],
-    hoursPerWeek: 10,
     projectPreference: "Developer tooling & language infra",
     vouchCount: 1,
-    hourlyRate: 75,
     lastUpdated: "2026-01-20",
   },
 ];
@@ -399,8 +362,7 @@ const DeveloperCard = ({ dev }: { dev: Developer }) => (
     {/* Details */}
     <div className="space-y-1.5 mb-4 flex-1">
       <p className="text-xs text-slate-500">
-        <span className="text-slate-700 font-medium">{dev.hoursPerWeek} hrs/week</span>
-        {dev.availableDate ? ` · Available ${dev.availableDate}` : " · Available now"}
+        {dev.availableDate ? `Available ${dev.availableDate}` : "Available now"}
       </p>
       <p className="text-xs text-slate-500">
         Looking for: {dev.projectPreference}
@@ -448,11 +410,7 @@ export default function LineupPage() {
 
   const hasActiveFilters =
     filters.availability !== "all" ||
-    filters.hoursPerWeek !== "all" ||
-    filters.selectedStacks.length > 0 ||
-    filters.budgetMax < 300;
-
-  const developersInBudget = MOCK_DEVELOPERS.filter((d) => d.hourlyRate <= filters.budgetMax).length;
+    filters.selectedStacks.length > 0;
 
   const filteredDevelopers = useMemo(() => {
     let result = [...MOCK_DEVELOPERS];
@@ -471,23 +429,10 @@ export default function LineupPage() {
       });
     }
 
-    if (filters.hoursPerWeek !== "all") {
-      result = result.filter((dev) => {
-        if (filters.hoursPerWeek === "10-20") return dev.hoursPerWeek >= 10 && dev.hoursPerWeek <= 20;
-        if (filters.hoursPerWeek === "20-40") return dev.hoursPerWeek > 20 && dev.hoursPerWeek <= 40;
-        if (filters.hoursPerWeek === "40+") return dev.hoursPerWeek >= 40;
-        return true;
-      });
-    }
-
     if (filters.selectedStacks.length > 0) {
       result = result.filter((dev) =>
         dev.skills.some((skill) => filters.selectedStacks.includes(skill))
       );
-    }
-
-    if (filters.budgetMax < 300) {
-      result = result.filter((dev) => dev.hourlyRate <= filters.budgetMax);
     }
 
     switch (filters.sortBy) {
@@ -561,13 +506,6 @@ export default function LineupPage() {
               value={filters.availability}
               onChange={(v) => updateFilter("availability", v)}
             />
-            <Dropdown
-              label="Hours"
-              options={HOURS_OPTIONS}
-              value={filters.hoursPerWeek}
-              onChange={(v) => updateFilter("hoursPerWeek", v)}
-            />
-
             {/* Stack multi-select */}
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-xs text-slate-400 mr-1">Stack:</span>
@@ -584,22 +522,6 @@ export default function LineupPage() {
                   {stack}
                 </button>
               ))}
-            </div>
-
-            {/* Budget slider */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-slate-400">Budget:</span>
-              <input
-                type="range"
-                min={50}
-                max={300}
-                step={10}
-                value={filters.budgetMax}
-                onChange={(e) => updateFilter("budgetMax", Number(e.target.value))}
-                className="w-24 h-1 bg-slate-200 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-slate-800 [&::-webkit-slider-thumb]:cursor-pointer"
-              />
-              <span className="text-xs text-slate-600">${filters.budgetMax}/hr</span>
-              <span className="text-xs text-emerald-600">{developersInBudget} in budget</span>
             </div>
 
             {hasActiveFilters && (

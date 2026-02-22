@@ -96,7 +96,7 @@ export default function Home() {
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1"><span className="font-medium text-slate-700">40 hrs/week</span> · Available now</p>
+            <p className="text-xs text-slate-500 mb-1">Available now</p>
             <p className="text-xs text-slate-500 mb-4">5 verified vouches</p>
             <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Message</button>
           </div>
@@ -131,7 +131,7 @@ export default function Home() {
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1"><span className="font-medium text-slate-700">30 hrs/week</span> · Available March 15</p>
+            <p className="text-xs text-slate-500 mb-1">Available March 15</p>
             <p className="text-xs text-slate-500 mb-4">7 verified vouches</p>
             <button className="mt-auto w-full px-4 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg">Set Pulse</button>
           </div>
@@ -166,7 +166,7 @@ export default function Home() {
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1"><span className="font-medium text-slate-700">40 hrs/week</span> · Available now</p>
+            <p className="text-xs text-slate-500 mb-1">Available now</p>
             <p className="text-xs text-slate-500 mb-4">5 verified vouches</p>
             <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Message</button>
           </div>
@@ -353,7 +353,7 @@ export default function Home() {
               <div className="space-y-1 text-sm text-slate-300">
                 <p>TypeScript: 150 commits, last 3 months</p>
                 <p>Signal Score: 8.7 · 3 verified vouches</p>
-                <p>Available: 40 hrs/week, starting Monday</p>
+                <p>Available: starting Monday</p>
               </div>
               <p className="mt-3 text-xs text-slate-400">You know before you message.</p>
             </div>

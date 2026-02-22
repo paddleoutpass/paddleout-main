@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://paddleout.io",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Paddleout — Handpick your founding team",
     description: "Handpick your first engineers with GitHub-backed proof they ship.",
   },

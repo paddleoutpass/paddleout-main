@@ -33,39 +33,67 @@ export default function ClaimPage() {
             </h1>
 
             <p className="text-slate-500 text-base leading-relaxed mb-8 max-w-md">
-              Funded founders are searching for engineers who ship. Claim your @handle, connect GitHub, and let your commit history speak louder than any resume.
+              Funded founders are searching for engineers who ship. Claim your handle, connect GitHub once, and let your commit history speak louder than any resume. Free forever.
             </p>
 
-            <div className="space-y-5 mb-10">
+            <div className="space-y-5 mb-8">
               <div className="flex items-start gap-3">
                 <div className="w-6 h-6 bg-slate-100 border border-slate-200 rounded flex items-center justify-center shrink-0 text-xs font-medium text-slate-500">1</div>
                 <div>
-                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Claim your @handle</h3>
-                  <p className="text-sm text-slate-500">Reserve your username. First come, first served.</p>
+                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Claim your handle</h3>
+                  <p className="text-sm text-slate-500">Reserve your spot. First come, first served. Your identity stays hidden until you accept a request.</p>
                 </div>
               </div>
-
               <div className="flex items-start gap-3">
                 <div className="w-6 h-6 bg-slate-100 border border-slate-200 rounded flex items-center justify-center shrink-0 text-xs font-medium text-slate-500">2</div>
                 <div>
-                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Connect GitHub</h3>
-                  <p className="text-sm text-slate-500">We generate your Signal Score and velocity graph automatically.</p>
+                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Connect GitHub — read-only</h3>
+                  <p className="text-sm text-slate-500">We analyze patterns, never your IP. Your Stack Radar, Signal Score, and velocity graph generate automatically.</p>
                 </div>
               </div>
-
               <div className="flex items-start gap-3">
                 <div className="w-6 h-6 bg-slate-100 border border-slate-200 rounded flex items-center justify-center shrink-0 text-xs font-medium text-slate-500">3</div>
                 <div>
-                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Get found by founders</h3>
-                  <p className="text-sm text-slate-500">Funded startups search The Lineup and message you directly.</p>
+                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Add peer vouches</h3>
+                  <p className="text-sm text-slate-500">Request structured endorsements from teammates who verify real-world impact — not just &ldquo;great to work with.&rdquo;</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-slate-100 border border-slate-200 rounded flex items-center justify-center shrink-0 text-xs font-medium text-slate-500">4</div>
+                <div>
+                  <h3 className="text-sm font-medium text-slate-800 mb-0.5">Toggle open. Get found.</h3>
+                  <p className="text-sm text-slate-500">Only recently funded founders can reach out. No recruiters, no spam. Lock in 15 minutes — double opt-in before any details are shared.</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 bg-white border border-slate-200 rounded-xl">
+            <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                <p className="text-xs text-slate-400 mb-1">Your Pass includes</p>
+                <div className="space-y-1">
+                  <p className="text-xs text-slate-600">— Stack Radar (6-axis)</p>
+                  <p className="text-xs text-slate-600">— Signal Score</p>
+                  <p className="text-xs text-slate-600">— Velocity graph</p>
+                  <p className="text-xs text-slate-600">— Peer vouch system</p>
+                  <p className="text-xs text-slate-600">— Anti-ghosting protocol</p>
+                </div>
+              </div>
+              <div className="p-4 bg-white border border-slate-200 rounded-xl">
+                <p className="text-xs text-slate-400 mb-1">You control</p>
+                <div className="space-y-1">
+                  <p className="text-xs text-slate-600">— Which repos are visible</p>
+                  <p className="text-xs text-slate-600">— When founders can reach you</p>
+                  <p className="text-xs text-slate-600">— Identity reveal timing</p>
+                  <p className="text-xs text-slate-600">— Who can message you</p>
+                  <p className="text-xs text-slate-600">— Availability status</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 bg-slate-800 text-white rounded-xl">
               <p className="text-xs text-slate-400 mb-1">The deal</p>
-              <p className="text-sm text-slate-600">
-                <span className="font-medium text-slate-800">Free forever for builders.</span> No fees. Your Pass updates automatically as you ship.
+              <p className="text-sm text-slate-200">
+                <span className="font-medium text-white">Free forever for builders.</span> No fees, no markups. Your Pass updates automatically as you ship.
               </p>
             </div>
           </div>

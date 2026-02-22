@@ -62,107 +62,86 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           {/* Card 1 */}
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl flex flex-col">
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-slate-800 text-white rounded-full flex items-center justify-center font-medium text-xs shrink-0">MC</div>
-                <div>
-                  <p className="text-sm font-medium text-slate-800">Marcus Chen</p>
-                  <p className="text-xs text-slate-500">Systems Engineer</p>
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <p className="text-sm font-semibold text-slate-800">Builder #291</p>
+                  <span className="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded">Tier-1 Alum</span>
                 </div>
+                <p className="text-xs text-slate-500">Systems Engineer</p>
               </div>
               <span className="flex items-center gap-1.5 text-xs text-emerald-600 shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Now
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Open
               </span>
             </div>
-            <div className="flex items-end justify-between mb-4 pb-4 border-b border-slate-100">
-              <div>
-                <p className="text-xs text-slate-400 mb-0.5">Signal</p>
-                <p className="text-2xl font-semibold text-slate-800">9.4</p>
-              </div>
-              <div className="flex items-end gap-[2px] h-8">
-                {[3,4,4,5,6,5,7,7,8,8,9,10].map((v, i) => (
-                  <div key={i} className="w-[3px] rounded-sm bg-slate-200" style={{ height: `${(v/10)*100}%` }} />
-                ))}
-              </div>
+            <div className="grid grid-cols-3 gap-1.5 mb-3">
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Velocity</p><p className="text-xs font-semibold text-slate-800">Top 3%</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Stack</p><p className="text-xs font-semibold text-slate-800">6 active</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Vouches</p><p className="text-xs font-semibold text-slate-800">5 verified</p></div>
             </div>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {["Rust","Go","TypeScript","Docker"].map(s => (
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1">Available now</p>
-            <p className="text-xs text-slate-500 mb-4">5 verified vouches</p>
-            <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Message</button>
+            <p className="text-xs text-slate-400 italic mb-4 leading-relaxed">&ldquo;Rebuilt core infra under load. Zero downtime.&rdquo; — Verified CTO</p>
+            <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Lock in 15 Minutes</button>
           </div>
 
           {/* Card 2 */}
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl flex flex-col">
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-slate-800 text-white rounded-full flex items-center justify-center font-medium text-xs shrink-0">AP</div>
-                <div>
-                  <p className="text-sm font-medium text-slate-800">Aisha Patel</p>
-                  <p className="text-xs text-slate-500">ML Platform Engineer</p>
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <p className="text-sm font-semibold text-slate-800">Builder #842</p>
+                  <span className="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded">Ex-Founder</span>
                 </div>
+                <p className="text-xs text-slate-500">ML Platform Engineer</p>
               </div>
               <span className="flex items-center gap-1.5 text-xs text-amber-600 shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />March 15
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />Mar 15
               </span>
             </div>
-            <div className="flex items-end justify-between mb-4 pb-4 border-b border-slate-100">
-              <div>
-                <p className="text-xs text-slate-400 mb-0.5">Signal</p>
-                <p className="text-2xl font-semibold text-slate-800">9.8</p>
-              </div>
-              <div className="flex items-end gap-[2px] h-8">
-                {[2,3,5,5,6,7,7,8,9,9,10,10].map((v, i) => (
-                  <div key={i} className="w-[3px] rounded-sm bg-slate-200" style={{ height: `${(v/10)*100}%` }} />
-                ))}
-              </div>
+            <div className="grid grid-cols-3 gap-1.5 mb-3">
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Velocity</p><p className="text-xs font-semibold text-slate-800">Top 1%</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Stack</p><p className="text-xs font-semibold text-slate-800">5 active</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Vouches</p><p className="text-xs font-semibold text-slate-800">7 verified</p></div>
             </div>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {["Python","Rust","TypeScript","AWS"].map(s => (
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1">Available March 15</p>
-            <p className="text-xs text-slate-500 mb-4">7 verified vouches</p>
+            <p className="text-xs text-slate-400 italic mb-4 leading-relaxed">&ldquo;Shipped our ML pipeline in 3 weeks. Pure 0-to-1 grit.&rdquo; — Verified CTO · YC W22</p>
             <button className="mt-auto w-full px-4 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg">Set Pulse</button>
           </div>
 
           {/* Card 3 */}
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl flex flex-col">
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-slate-800 text-white rounded-full flex items-center justify-center font-medium text-xs shrink-0">PK</div>
-                <div>
-                  <p className="text-sm font-medium text-slate-800">Priya Kapoor</p>
-                  <p className="text-xs text-slate-500">Data Platform Engineer</p>
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <p className="text-sm font-semibold text-slate-800">Builder #517</p>
+                  <span className="px-1.5 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded">Tier-1 Alum</span>
                 </div>
+                <p className="text-xs text-slate-500">Data Platform Engineer</p>
               </div>
               <span className="flex items-center gap-1.5 text-xs text-emerald-600 shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Now
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Open
               </span>
             </div>
-            <div className="flex items-end justify-between mb-4 pb-4 border-b border-slate-100">
-              <div>
-                <p className="text-xs text-slate-400 mb-0.5">Signal</p>
-                <p className="text-2xl font-semibold text-slate-800">8.9</p>
-              </div>
-              <div className="flex items-end gap-[2px] h-8">
-                {[3,4,5,6,5,7,7,8,8,9,9,10].map((v, i) => (
-                  <div key={i} className="w-[3px] rounded-sm bg-slate-200" style={{ height: `${(v/10)*100}%` }} />
-                ))}
-              </div>
+            <div className="grid grid-cols-3 gap-1.5 mb-3">
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Velocity</p><p className="text-xs font-semibold text-slate-800">Top 5%</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Stack</p><p className="text-xs font-semibold text-slate-800">7 active</p></div>
+              <div className="bg-slate-50 rounded-lg p-2"><p className="text-[10px] text-slate-400">Vouches</p><p className="text-xs font-semibold text-slate-800">5 verified</p></div>
             </div>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {["Python","Go","TypeScript","AWS"].map(s => (
                 <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-xs text-slate-600">{s}</span>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mb-1">Available now</p>
-            <p className="text-xs text-slate-500 mb-4">5 verified vouches</p>
-            <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Message</button>
+            <p className="text-xs text-slate-400 italic mb-4 leading-relaxed">&ldquo;Best data hire we&apos;ve made. Diagnosed and fixed in hours.&rdquo; — Verified Eng Lead</p>
+            <button className="mt-auto w-full px-4 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg">Lock in 15 Minutes</button>
           </div>
         </div>
 

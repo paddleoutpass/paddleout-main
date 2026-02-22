@@ -80,32 +80,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CATIE'S STORY */}
-        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60">
-          <div className="max-w-5xl mx-auto">
-            <div className="max-w-2xl">
-              <p className="text-sm text-slate-400 mb-2">How we got here</p>
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900 mb-6">
-                We spent years inside the machine. Then we left to build what should have existed.
-              </h2>
-              <div className="space-y-4 text-slate-500 text-sm leading-relaxed">
-                <p>
-                  We worked inside the machine — placing engineers at early-stage startups, watching brilliant founders waste weeks on process theater and brilliant builders ghost interviews they never wanted in the first place.
-                </p>
-                <p>
-                  The thing that finally got us wasn&apos;t a bad placement. It was realizing that the tools we were using every day were designed to slow things down. More steps, more filters, more touchpoints — all generating billable activity, none of it producing better hires.
-                </p>
-                <p>
-                  Recruiters aren&apos;t the problem. The incentive structure is. When you&apos;re paid to close a seat — not to find the right person — you optimize for the fee. And the platforms built to support that model are optimized for volume, not signal.
-                </p>
-                <p className="text-slate-700 font-medium">
-                  So we left. And we built Paddleout.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* WHAT WE'RE BUILDING */}
         <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60 bg-white">
           <div className="max-w-5xl mx-auto">

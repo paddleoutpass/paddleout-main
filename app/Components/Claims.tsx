@@ -224,6 +224,58 @@ export default function ClaimPage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60">
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-10">
+              <p className="text-sm text-slate-400 mb-2">FAQ</p>
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900">The questions you actually have.</h2>
+            </div>
+
+            <div className="space-y-px">
+              {[
+                {
+                  q: "What exactly do you see from my GitHub?",
+                  a: "Read-only access to your public activity only — commit frequency, language distribution, and general velocity patterns. We never see your source code, private repos, commit messages, or anything proprietary. We analyze how you work, not what you're building.",
+                },
+                {
+                  q: "Can my employer find me on Paddleout?",
+                  a: "No. You're listed as Builder #XXX — your name, GitHub username, and employer are never visible until you explicitly accept a founder's intro request. Recruiters are blocked entirely. Your current employer has no way to find you here.",
+                },
+                {
+                  q: "Do I have to connect GitHub right away?",
+                  a: "No. Claiming your handle reserves your spot and locks in your place in the queue. You can connect GitHub and complete your pass whenever you're ready before launch.",
+                },
+                {
+                  q: "Who can actually reach out to me?",
+                  a: "Only founders who've raised or are closing their seed round — verified before they get access. No recruiters, no staffing agencies, no spray-and-pray outreach. Every message comes from someone who has already seen your data and has a real reason to reach out.",
+                },
+                {
+                  q: "What are peer vouches and do I need them?",
+                  a: "Vouches are structured endorsements from teammates who verify real-world impact — not LinkedIn-style \"great to work with\" blurbs. They're optional but they strengthen your pass. You request them from former colleagues, who answer specific questions about how you work under pressure, what you shipped, and how you handled hard situations.",
+                },
+                {
+                  q: "Is it actually free?",
+                  a: "Yes. Free for builders, forever. No placement fees, no subscription, no credits. We don't make money from the builder side of the market — that's the whole point.",
+                },
+                {
+                  q: "What happens after I claim my handle?",
+                  a: "You'll get a confirmation with next steps. Before launch, you can connect GitHub and set up your pass. When The Lineup goes live in April 2026, you'll get early access — earlier signups get priority placement in search results.",
+                },
+                {
+                  q: "Can I delete my data?",
+                  a: "Anytime. Email info@paddleout.io and we'll remove everything within 14 days. You can also revoke GitHub access independently via GitHub Settings → Applications → Authorized OAuth Apps.",
+                },
+              ].map(({ q, a }) => (
+                <div key={q} className="py-5 border-b border-slate-200/60 first:border-t first:border-slate-200/60">
+                  <h3 className="text-sm font-medium text-slate-800 mb-2">{q}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* BOTTOM CTA */}
         <section className="px-6 py-16 sm:py-20 border-t border-slate-200/60 bg-white">
           <div className="max-w-2xl mx-auto text-center">

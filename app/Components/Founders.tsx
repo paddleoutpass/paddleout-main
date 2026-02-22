@@ -267,6 +267,7 @@ export default function FoundersPage() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-sm text-slate-400">Paddleout © 2026</p>
           <Link href="/about" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Why we exist</Link>
+          <Link href="/privacy" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Privacy</Link>
           <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
             info@paddleout.io
           </a>

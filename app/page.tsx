@@ -403,6 +403,7 @@ export default function Home() {
             <p className="text-sm text-slate-400">Paddleout © 2026</p>
             <div className="flex justify-center gap-6">
               <Link href="/about" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Why we exist</Link>
+              <Link href="/privacy" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Privacy</Link>
               <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">info@paddleout.io</a>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import BuilderPass from './Components/BuilderPass';
 
 export default function Home() {
   return (
@@ -27,24 +26,29 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] mb-5 text-slate-900">
-              You just got funded.<br />Now hire the team.
+              Your first 3 hires determine your culture.<br />Don&apos;t outsource them.
             </h1>
             <p className="text-slate-500 text-base md:text-lg max-w-lg leading-relaxed mb-6">
-              Handpick your first engineers without recruiters. Paddleout gives you a verified roster of builders with GitHub-backed proof they ship&mdash;searchable by stack, availability, and work type.
+              Paddleout gives recently funded founders a verified roster of builders&mdash;searchable by stack, real-time availability, and work type. GitHub-backed proof they ship. No recruiter in the middle.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/builders" className="px-5 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-all text-center">
-                Claim your Pass
+              <Link href="/founders" className="px-5 py-2.5 bg-slate-800 text-white font-medium text-sm rounded-lg hover:bg-slate-700 transition-all text-center">
+                Find My Founding Team
               </Link>
-              <Link href="/founders" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
-                Founders: Early Access
+              <Link href="/builders" className="px-5 py-2.5 border border-slate-200 text-slate-600 font-medium text-sm rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
+                Claim Your Handle — Free
               </Link>
             </div>
-            <p className="text-xs text-slate-400 mt-3">Builders: free forever · Founders: early access coming April 2026</p>
-            <p className="text-sm text-slate-400 mt-4">Free for builders, forever.</p>
           </div>
+          {/* MOCKUP PLACEHOLDER */}
           <div className="flex items-center justify-center">
-            <BuilderPass />
+            <div className="w-full max-w-sm aspect-[3/4] rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center gap-3 text-center px-6">
+              <div className="w-10 h-10 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center">
+                <span className="text-slate-300 text-lg">+</span>
+              </div>
+              <p className="text-sm font-medium text-slate-400">Builder Pass Mockup</p>
+              <p className="text-xs text-slate-300">Drop your design here</p>
+            </div>
           </div>
         </div>
       </section>
@@ -214,45 +218,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. THE SOLUTION */}
+      {/* 3. THE THREE PILLARS */}
       <section className="py-16 sm:py-20 px-6 max-w-5xl mx-auto border-t border-slate-200/60">
         <div className="mb-10">
-          <p className="text-sm text-slate-400 mb-2">The solution</p>
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-3">Stay hands-on. Skip the recruiter.</h2>
-          <p className="text-slate-500 text-base max-w-xl leading-relaxed">
-            Builder Passes give you verified candidates matched to your stack&mdash;without the $20k invoice.
-          </p>
+          <p className="text-sm text-slate-400 mb-2">Why it works</p>
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight leading-tight text-slate-900 mb-3">Built around the signals that actually matter.</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-3">
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Signal Score</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">One number that tells you if someone ships. Calculated from commit velocity and peer vouches.</p>
+            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Code, Not Keywords</h4>
+            <p className="text-sm text-slate-500 leading-relaxed">One-click GitHub sync analyzes 30-day stack recency and commit velocity. We don&apos;t care what they did in 2019 — we show you what they&apos;re shipping right now.</p>
           </div>
 
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Velocity Graph</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">12 weeks of real GitHub activity. See whether someone is shipping daily or coasting.</p>
+            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Vouches with Teeth</h4>
+            <p className="text-sm text-slate-500 leading-relaxed">Forget endorsements. Our vouches come from current teammates who verify real-world technical ownership. No noise, just signal.</p>
           </div>
 
           <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Stack Recency</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">See what they&apos;re building with today, not what&apos;s on a three-year-old resume.</p>
-          </div>
-
-          <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Real-Time Availability</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">See who&apos;s available this week. Get notified when someone opens up.</p>
-          </div>
-
-          <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Peer Vouches</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">Structured feedback from people who shipped alongside them.</p>
-          </div>
-
-          <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
-            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Private Repo Proof</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">Verified outcomes from proprietary projects, without exposing code.</p>
+            <h4 className="text-sm font-medium mb-1.5 text-slate-800">Anti-Ghosting Protocol</h4>
+            <p className="text-sm text-slate-500 leading-relaxed">Accountability is built into the flow. Builders who don&apos;t show up lose their status. We value your runway as much as you do.</p>
           </div>
         </div>
       </section>
@@ -272,22 +258,22 @@ export default function Home() {
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">01</div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Search The Lineup</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">Filter by stack and timeline. Only see engineers who match.</p>
+                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Filter by Signal</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">Browse builders sorted by stack recency and peer-verified impact. Only see engineers who match.</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">02</div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Message Directly</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">Talk to engineers yourself. No middleman rewriting your pitch.</p>
+                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Direct Access</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">No middleman. No placement fees. Talk to engineers yourself.</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">03</div>
                 <div>
                   <h4 className="text-sm font-medium text-slate-800 mb-0.5">Hire in Weeks</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">GitHub proof replaces multi-round screens. Ship faster.</p>
+                  <p className="text-sm text-slate-500 leading-relaxed">One-click booking with builders who are actually open to early-stage chaos.</p>
                 </div>
               </div>
             </div>
@@ -300,22 +286,22 @@ export default function Home() {
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">01</div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Claim Your Pass</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">Connect GitHub once. We generate your profile automatically.</p>
+                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Passive Discovery</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">Toggle open. Let the right founders find you — no applications, no cold outreach.</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">02</div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Set Your Terms</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">Full-time or contract. You decide when founders can reach out.</p>
+                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Privacy First</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">Read-only GitHub sync. We analyze patterns, never your IP.</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <div className="text-sm text-slate-300 shrink-0 w-5">03</div>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Get Found</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">Funded founders message you directly. No recruiter spam.</p>
+                  <h4 className="text-sm font-medium text-slate-800 mb-0.5">Spam-Free Zone</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed">Only recently funded founders can reach out. No generic recruiter emails.</p>
                 </div>
               </div>
             </div>
@@ -415,7 +401,8 @@ export default function Home() {
       {/* 7. FOOTER CTA */}
       <footer className="py-16 sm:py-20 px-6 border-t border-slate-200/60 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-medium mb-8 tracking-tight text-slate-900 text-center">Ready to hire your founding team?</h2>
+          <h2 className="text-2xl sm:text-3xl font-medium mb-3 tracking-tight text-slate-900 text-center">Recruiter speed. Founder control.</h2>
+          <p className="text-center text-slate-500 text-sm mb-10">Built for the 0-to-1 struggle. Whether you just closed your seed or you&apos;re scaling a YC batch.</p>
 
           <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
             <div className="p-5 bg-white border border-slate-200/80 rounded-xl">
@@ -423,8 +410,8 @@ export default function Home() {
               <p className="text-sm text-slate-500 leading-relaxed mb-4">
                 Early access for seed and Series A founders hiring their first engineers.
               </p>
-              <Link href="/lineup" className="text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors">
-                Preview Demo →
+              <Link href="/founders" className="text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors">
+                Join the Beta →
               </Link>
             </div>
 
@@ -434,15 +421,13 @@ export default function Home() {
                 Free forever. Let funded founders find you through your code.
               </p>
               <Link href="/builders" className="text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors">
-                Claim Your Pass →
+                Claim Your Handle →
               </Link>
             </div>
           </div>
 
           <div className="text-center pt-8 border-t border-slate-200/60">
-            <p className="text-sm text-slate-400">
-              Paddleout © 2026
-            </p>
+            <p className="text-sm text-slate-400">Paddleout © 2026</p>
             <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
               info@paddleout.io
             </a>

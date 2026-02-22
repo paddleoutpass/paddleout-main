@@ -36,7 +36,7 @@ export default function FoundersPage() {
               Technical Hiring is<br />Broken by Design.
             </h1>
             <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-              Stop losing months of runway to 20% &ldquo;placement fees&rdquo; and static 2021 resumes. Access the private network of Founding Engineers verified by code velocity and peer-vouched impact.
+              Access the private network of Founding Engineers verified by code velocity and peer-vouched impact. No placement fees. No static resumes. No recruiters optimizing for their commission.
             </p>
             <a
               href="#apply"
@@ -74,17 +74,17 @@ export default function FoundersPage() {
 
               <div className="p-6 bg-[#fafafa] border border-slate-200/80 rounded-xl">
                 <p className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-3">The Signal Vacuum</p>
-                <h3 className="text-sm font-medium text-slate-800 mb-2">Resumes are easily gamed. Interviews are theater.</h3>
+                <h3 className="text-sm font-medium text-slate-800 mb-2">10+ hours a week interviewing people who can&apos;t ship.</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">
-                  You&apos;re spending 10+ hours a week interviewing &ldquo;Seniors&rdquo; who haven&apos;t shipped a meaningful PR in six months. The signal you need isn&apos;t on the resume.
+                  Resumes are gamed. Leetcode is theater. You&apos;re making $150k decisions on a 30-minute call — with no proof they&apos;ve shipped anything meaningful in months.
                 </p>
               </div>
 
               <div className="p-6 bg-[#fafafa] border border-slate-200/80 rounded-xl">
                 <p className="text-xs font-medium text-slate-400 uppercase tracking-wide mb-3">The Passive Barrier</p>
-                <h3 className="text-sm font-medium text-slate-800 mb-2">The engineers you actually want aren&apos;t on job boards.</h3>
+                <h3 className="text-sm font-medium text-slate-800 mb-2">The best engineers never see your job posting.</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">
-                  The ones scaling Stripe or Vercel avoid public listings to escape recruiter noise. If you&apos;re only searching where everyone else looks, you&apos;re getting everyone else&apos;s leftovers.
+                  They&apos;re heads-down at Stripe or Vercel, invisible to job boards by design. The only way to reach them is a private network they actually trust.
                 </p>
               </div>
             </div>

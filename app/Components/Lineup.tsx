@@ -71,7 +71,7 @@ const MOCK_DEVELOPERS: Developer[] = [
   {
     id: "2", handle: "Builder #842", badge: "Ex-Founder",
     title: "ML Platform Engineer",
-    status: "soon", availableDate: "March 15",
+    status: "available", availableDate: null,
     signalScore: 9.8, velocityPct: "Top 1%",
     radar: [0.98, 0.60, 0.88, 0.75, 0.95, 0.65],
     skills: ["Python", "Rust", "TypeScript", "AWS"],
@@ -95,7 +95,7 @@ const MOCK_DEVELOPERS: Developer[] = [
   {
     id: "4", handle: "Builder #514", badge: "Tier-1 Alum",
     title: "Backend Architect",
-    status: "soon", availableDate: "March 1",
+    status: "available", availableDate: null,
     signalScore: 9.2, velocityPct: "Top 4%",
     radar: [0.90, 0.40, 0.95, 0.88, 0.70, 0.45],
     skills: ["Go", "Rust", "Python", "Kubernetes"],
@@ -119,7 +119,7 @@ const MOCK_DEVELOPERS: Developer[] = [
   {
     id: "6", handle: "Builder #427", badge: "Tier-1 Alum",
     title: "DevOps & Infra Lead",
-    status: "soon", availableDate: "April 1",
+    status: "available", availableDate: null,
     signalScore: 9.0, velocityPct: "Top 5%",
     radar: [0.92, 0.35, 0.78, 0.97, 0.55, 0.40],
     skills: ["Go", "Python", "Kubernetes", "AWS"],
@@ -131,7 +131,7 @@ const MOCK_DEVELOPERS: Developer[] = [
   {
     id: "7", handle: "Builder #318", badge: "Tier-1 Alum",
     title: "Web3 Protocol Engineer",
-    status: "soon", availableDate: "March 10",
+    status: "available", availableDate: null,
     signalScore: 8.3, velocityPct: "Top 10%",
     radar: [0.80, 0.55, 0.85, 0.70, 0.65, 0.50],
     skills: ["Rust", "TypeScript", "Solidity"],
@@ -155,7 +155,7 @@ const MOCK_DEVELOPERS: Developer[] = [
   {
     id: "9", handle: "Builder #203", badge: "Ex-Founder",
     title: "Mobile & Systems Engineer",
-    status: "soon", availableDate: "March 20",
+    status: "available", availableDate: null,
     signalScore: 7.8, velocityPct: "Top 18%",
     radar: [0.75, 0.85, 0.65, 0.50, 0.55, 0.80],
     skills: ["React", "TypeScript", "Swift"],

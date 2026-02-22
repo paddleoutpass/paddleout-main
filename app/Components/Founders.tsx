@@ -218,7 +218,7 @@ export default function FoundersPage() {
                     <p className="text-xs text-slate-400">placement fees. Ever.</p>
                   </div>
                 </div>
-                <p className="text-xs text-slate-400 text-center">Exclusively for venture-backed founders.</p>
+                <p className="text-xs text-slate-400 text-center">For founders who&apos;ve raised or are closing their seed round.</p>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function FoundersPage() {
                   Apply for Founder Access
                 </h2>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                  Exclusively for venture-backed founders hiring their first engineers. No placement fees. Ever.
+                  For founders who&apos;ve raised or are closing their seed round — hiring their first engineers. No placement fees. Ever.
                 </p>
                 <div className="p-4 bg-slate-800 text-white rounded-xl">
                   <p className="text-xs text-slate-400 mb-1">Early access includes</p>
@@ -266,6 +266,7 @@ export default function FoundersPage() {
       <footer className="border-t border-slate-200/60 py-6 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-sm text-slate-400">Paddleout © 2026</p>
+          <Link href="/about" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Why we exist</Link>
           <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
             info@paddleout.io
           </a>

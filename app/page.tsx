@@ -399,11 +399,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center pt-8 border-t border-slate-200/60">
+          <div className="text-center pt-8 border-t border-slate-200/60 space-y-1">
             <p className="text-sm text-slate-400">Paddleout © 2026</p>
-            <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
-              info@paddleout.io
-            </a>
+            <div className="flex justify-center gap-6">
+              <Link href="/about" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Why we exist</Link>
+              <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">info@paddleout.io</a>
+            </div>
           </div>
         </div>
       </footer>

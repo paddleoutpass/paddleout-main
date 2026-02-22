@@ -151,7 +151,7 @@ export default function ClaimPage() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    "Venture-backed founders only — seed through Series A",
+                    "Founders who&apos;ve raised or are closing their seed round — no recruiters",
                     "Founders see your data before they message you",
                     "You approve every intro before your identity is revealed",
                     "Double opt-in — both sides confirm before details are shared",
@@ -251,6 +251,7 @@ export default function ClaimPage() {
       <footer className="border-t border-slate-200/60 py-6 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-sm text-slate-400">Paddleout © 2026</p>
+          <Link href="/about" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">Why we exist</Link>
           <a href="mailto:info@paddleout.io" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
             info@paddleout.io
           </a>

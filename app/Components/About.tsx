@@ -51,8 +51,11 @@ export default function AboutPage() {
                 <p className="text-slate-500 text-sm leading-relaxed mb-4">
                   LinkedIn generates roughly 60–70% of its revenue from &ldquo;Talent Solutions&rdquo; — tools sold to recruiters to filter through the noise the platform itself creates. Indeed charges employers to sponsor job posts just to stay visible in an ocean of spam applications.
                 </p>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
                   They aren&apos;t selling matches. They&apos;re selling access to a crowded room they built. If hiring became fast, direct, and transparent, their primary revenue stream would disappear. They are structurally incentivized to keep founders and builders apart — and to keep charging for the bridge between them.
+                </p>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Recruiters aren&apos;t the problem. The incentive structure is. More steps, more filters, more touchpoints — all generating billable activity, none of it producing better hires. Founders waste weeks on process theater. Builders ghost interviews they never wanted. Everyone loses except the platform.
                 </p>
               </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import BuilderPass from './Components/BuilderPass';
 
 export default function Home() {
   return (
@@ -40,15 +41,8 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          {/* MOCKUP PLACEHOLDER */}
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-sm aspect-[3/4] rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center gap-3 text-center px-6">
-              <div className="w-10 h-10 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center">
-                <span className="text-slate-300 text-lg">+</span>
-              </div>
-              <p className="text-sm font-medium text-slate-400">Builder Pass Mockup</p>
-              <p className="text-xs text-slate-300">Drop your design here</p>
-            </div>
+            <BuilderPass />
           </div>
         </div>
       </section>
